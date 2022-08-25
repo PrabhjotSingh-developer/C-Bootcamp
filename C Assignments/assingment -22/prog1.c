@@ -3,14 +3,21 @@
 #include<stdlib.h>
 char* func()
 {
-    char *ptr; 
-    int len;
-     printf("Enter the length of string\n");
-     scanf("%d",&len);
-     fflush(stdin);
-     ptr = (char*)calloc(len,sizeof(char));
+    char *ptr,c; 
+    int i=0,j=1;
+    ptr = (char*)malloc(sizeof(char));
      printf("Enter the string\n");
-     fgets(ptr,len,stdin);
+    while(c!='\n')
+    {
+         c = getc(stdin);
+         j++;
+         ptr =  (char*)realloc(ptr,j*sizeof(char));
+         ptr[i]=c;
+          i++;
+    
+    }
+
+    ptr[i]='\0';
      return ptr;
 
 }
@@ -21,4 +28,5 @@ int main()
    x = func();
    printf("\n-------Printing the string ------\n");
    printf("%s",x);
+   free(x);
 }
