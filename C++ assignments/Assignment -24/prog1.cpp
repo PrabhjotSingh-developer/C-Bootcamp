@@ -9,9 +9,9 @@ int main()
      cin>>num;
      x = prime_num(num);
      if(x==1)
-       printf("Not a Prime number");
+       cout<<"Not a prime number"<<endl;
      else
-       printf("Prime number");
+       cout<<"Prime numbers"<<endl;
 }
 int prime_num(int n)
 {
