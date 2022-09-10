@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include<conio.h>
 void printmatrix(int[][3]);
 int winningcols(int[][3]);
 int winningrows(int[][3]);
@@ -15,15 +16,17 @@ void Playergame();
 void evilcomputergame();
 int main()
 {
+    
     while (1)
     {
         int x = 0;
-
         printf("                    Enter your choice \n");
         printf("            1. Want to Play with smart Computer\n");
         printf("             2. Want to Play with Evil Computer\n");
         printf("               3. Want to Play with Player\n");
         printf("                 4. Exit\n");
+       
+
         scanf("%d", &x);
         system("cls");
         if (x == 1)
@@ -42,10 +45,10 @@ int main()
         if (x == 4)
         {
             printf("Thanks for Playing game \n");
-
             break;
         }
     }
+   
 }
 void computergame()
 {
@@ -627,32 +630,31 @@ int evilcomputer(int arr[][3])
     }
 
     // for diagonalld
-    int ld = 2, lda = 2;
     count = 0;
-    for (i = 0; i < 3; i++)
+     for (i = 0; i < 3; i++)
     {
-
-        if (arr[i][ld] == 0)
+        for (j = 0; j < 3; j++)
         {
-
-            count++;
+            if (arr[i][j] == 0 && j==3-i-1)
+            {
+                count++;
+            }
         }
-        ld--;
-
         if (count == 2)
         {
             for (r = 0; r < 3; r++)
             {
-                if (arr[r][lda] != 0 && arr[r][lda] != 88)
+                for (c = 0; c < 3; c++)
                 {
-
-                    return 1;
+                    if (arr[r][c] != 0 && arr[r][c] != 88 && c == 3-r-1)
+                    {
+                        return 1;
+                    }
                 }
-                lda--;
             }
         }
     }
-
+   
     return 0;
 }
 void computerprintmatrix(int a[][3])
@@ -732,7 +734,7 @@ void evilcomputergame()
             turn = 1;
             x++;
             if (evilcomputer(arr) == 1 && h)
-            {
+            {   
                 turn = 0;
                 h = 0;
             }
