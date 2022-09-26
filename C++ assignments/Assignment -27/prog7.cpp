@@ -59,36 +59,31 @@ istream &operator>>(istream &input, fraction &f1)
 }
 int main()
 {
-    fraction f1,f2,f3,f4;
+    fraction f1,f2;
     cout<<"f1 = ";
     cout<<f1;
     cout<<"f2 = ";
     cout<<f2;
     cout<<"Enter first fraction value"<<endl;
     cin>>f1;
-    f3 = f1++;
+    f1++;
     cout<<"f1++ :  ";
     cout<<f1;
-    
-    f4 = ++f1;
+    ++f1;
     cout<<"++f1  : ";
-    cout<<f4;
-
+    cout<<f1;
     cout<<"Enter Second fraction value"<<endl;
-    cin>>f1;
+    cin>>f2;
     f2 = ++f1;
     cout<<"f2 = ++f1"<<endl<<"f1 :  ";
     cout<<f1;
     cout<<"f2 :  ";
     cout<<f2;
-
     cout<<endl;
     f2 = f1++;
     cout<<"f2 = f1++"<<endl<<"f1 :  ";
     cout<<f1;
     cout<<"f2 :  ";
     cout<<f2;
-   
-
-     
+      
 }
